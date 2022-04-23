@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Валидацияф</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+    <h1>Валидация</h1>
+</header>
+<main class="main">
+    <div class="container">
+        <form class="info">
+            <label>
+            <span>
+                Введите ФИО
+            </span>
+                <input class="input" id="fio" onblur="fioError()" type="text"
+                       placeholder="Мартыненко Алексей Михайлович">
+            </label>
+            <span id="errorFio" class="error"></span>
+            <label>
+                    <span>
+                        Введите пароль
+                    </span>
+                <input class="input" id="password" onblur="passwordError()" type="password" placeholder="**********">
+            </label>
+            <span id="errorPassword" class="error"></span>
+            <label>
+                    <span>
+                        Подтвердите пароль
+                    </span>
+                <input class="input" id="repeatPassword" onblur="repeatPasswordError()" type="password"
+                       placeholder="**********">
+            </label>
+            <span id="errorRepeatPassword" class="error"></span>
+            <label>
+                    <span>
+                        Введите e-mail
+                    </span>
+                <input class="input" onblur="emailError()" id="email" type="email" placeholder="mart@mail.ru">
+            </label>
+            <span id="errorEmail" class="error"></span>
+            <button class="btn" type="submit">Отправить</button>
+        </form>
+    </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
