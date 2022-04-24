@@ -9,12 +9,20 @@ let errorRepeatPassword = document.querySelector('#errorRepeatPassword')
 let errorEmail = document.querySelector('#errorEmail')
 
 
+let render = () => {
+  if (fio.value && password.value && repeatPassword.value && email.value) {
+    btn.removeAttribute('disabled')
+  }
+}
+
+
 let emailError = () => {
   let regEmail = /\S+@\S+\.\S+/
   if (!regEmail.test(email.value)) {
-    errorEmail.innerHTML = 'вфвф'
+    errorEmail.innerHTML = 'Неверно введен email'
   } else {
     errorEmail.innerHTML = ''
+    render()
   }
 
 }
@@ -24,25 +32,24 @@ let repeatPasswordError = () => {
     errorRepeatPassword.innerHTML = 'Пароль не совподает'
   } else {
     errorRepeatPassword.innerHTML = ''
+    render()
   }
 }
 
 let passwordError = () => {
   if (password.value.length < 10) {
-    errorPassword.innerHTML = 'Неверно введет пароль. Минимум 10 символов'
+    errorPassword.innerHTML = 'Слишком кароткий пароль. Минимум 10 символов'
   } else {
     errorPassword.innerHTML = ''
+    render()
   }
 }
 
 let fioError = () => {
   if (fio.value.length < 10) {
-    errorFio.innerHTML = 'Слишком кароткий ФИО'
+    errorFio.innerHTML = 'Неверное ФИО'
   } else {
     errorFio.innerHTML = ''
+    render()
   }
 }
-
-btn.addEventListener('click', e => {
-  e.preventDefault()
-})
